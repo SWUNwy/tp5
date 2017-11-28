@@ -11,7 +11,7 @@ class Index extends Controller {
 	//开发者秘钥
 	private $encodingAESKey = "";
 
-	private $token ="";
+	private $token ="yrui";
 
 	public function __initialize($appId,$encodingAESKey,$token) {
 		$this->appId = $appId;
