@@ -1,0 +1,55 @@
+<extend name="Common/meta" />
+<block name="body">
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>会员详情</h5>
+                <div class="ibox-tools">
+                    <button type="button" class="btn btn-outline btn-primary btn-xs" onclick="history.go(-1);">返回</button>
+                </div>
+            </div>
+            <div class="ibox-content">
+                <table class="table table-bordered" style="width: 80%;margin: auto;">
+                    <thead>
+                        <tr>
+                            <th colspan="5"  style="text-align: center;">会员{$member.uname}基本信息</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th>姓名</th>
+                        <td>{$member.uname}</td>
+                        <th>性别</th>
+                        <td>
+                            <if condition="($member['sex'] eq 1)">男</if>
+                            <if condition="($member['sex'] eq 0)">女</if>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>邮箱</th>
+                        <td>{$member.email}</td>
+                        <th>联系方式</th>
+                        <td>{$member.phone}</td>
+                    </tr>
+                    <tr>
+                        <th>最后访问IP</th>
+                        <td>{$member.ip}</td>
+                        <th>加入时间</th>
+                        <td>{$member.add_time}</td>
+                    </tr>
+                    <tr>
+                        <th>个人简介</th>
+                        <td colspan="4">{$member.introduction}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</block>
+<script>
+    $(document).ready(function(){$(".i-checks").iCheck({checkboxClass:"icheckbox_square-green",radioClass:"iradio_square-green",})});
+</script>
+<!-- <script type="text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script> -->
