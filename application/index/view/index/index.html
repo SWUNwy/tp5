@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html>
-<!-- Mirrored from www.zi-han.net/theme/hplus/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 03 Mar 2016 12:31:16 GMT -->
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit">
     <meta http-equiv="Cache-Control" content="no-siteapp" />
-    <!--<title>{$Think.config.system_title}</title>-->
 
     <meta name="keywords" content="{$Think.config.system_title}">
     <meta name="description" content="{$Think.config.system_title}">
@@ -33,11 +31,7 @@
                     <li class="nav-header">
                         <div class="dropdown profile-element">
                             <span>
-                                <if condition="($images eq '')">
-                                    <img alt="image" class="img-circle" src="__IMG__/profile_small.jpg" />
-                                <else/>
-                                    <img alt="image" class="img-circle" style="width: 64px;height: 64px;" src="" />
-                                </if>
+                                <img alt="image" class="img-circle" src="__IMG__/profile_small.jpg" />
                             </span>
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <span class="clear">
@@ -46,12 +40,10 @@
                                 </span>
                             </a>
                             <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                                <if condition="($user_id neq 1)">
-                                <li><a class="J_menuItem" href="{:U('User/edituser',['id'=>$user_id])}">修改资料</a>
+                                <li><a class="J_menuItem" href="{:url('User/edituser')}">修改资料</a>
                                 </li>
                                 <li class="divider"></li>
-                                </if>
-                                <li><a href="{:U('Login/logout')}" onclick="logout();">安全退出</a>
+                                <li><a href="{:url('Login/logout')}" onclick="logout();">安全退出</a>
                                 </li>
                             </ul>
                         </div>
@@ -59,13 +51,12 @@
                         </div>
                     </li>
                     <li>
-                        <a href="{:U('Index/main')}" class="J_menuItem">
+                        <a href="{:url('Index/main')}" class="J_menuItem">
                             <i class="fa fa-home" style="font-size: 18px;"></i>
                             <span class="nav-label">主页</span>
                         </a>
                     </li>
 
-                    <?php if(in_array('1',$auth)||$auth==''){ ?>
                     <li>
                         <a href="#graduation-cap">
                             <i class="fa fa-graduation-cap"></i>
@@ -73,49 +64,20 @@
                             <span class="fa arrow"></span>
                         </a>
 
-                        <?php if(in_array('2',$auth)||$auth==''){ ?>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a class="J_menuItem" href="{:U('Member/addMember')}">新增会员</a>
+                                <a class="J_menuItem" href="{:url('Member/addMember')}">新增会员</a>
                             </li>
                         </ul>
-                        <?php } ?>
 
-                        <?php if(in_array('3',$auth)||$auth==''){ ?>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a class="J_menuItem" href="{:U('Member/index')}">会员列表</a>
+                                <a class="J_menuItem" href="{:url('Member/index')}">会员列表</a>
                             </li>
                         </ul>
-                        <?php } ?>
 
                     </li>
-                    <?php } ?>
 
-<!--                    <?php if(in_array('4',$auth)||$auth==''){ ?>
-                    <li>
-                        <a href="#shield">
-                            <i class="fa fa-shield" style="font-size: 18px;"></i>
-                            <span class="nav-label">&nbsp;奖惩管理</span>
-                            <span class="fa arrow"></span>
-                        </a>
-                        <ul class="nav nav-second-level">
-                            <?php if(in_array('5',$auth)||$auth==''){ ?>
-                            <li>
-                                <a class="J_menuItem" href="{:U('Reward/addReward')}">添加记录</a>
-                            </li>
-                            <?php } ?>
-
-                            <?php if(in_array('6',$auth)||$auth==''){ ?>
-                            <li>
-                                <a class="J_menuItem" href="{:U('Reward/rewardList')}">奖惩记录</a>
-                            </li>
-                            <?php } ?>
-                        </ul>
-                    </li>
-                    <?php } ?>-->
-
-                    <?php if(in_array('7',$auth)||$auth==''){ ?>
                     <li>
                         <a href="#balance-scale">
                             <i class="fa fa-balance-scale"></i>
@@ -123,22 +85,15 @@
                             <span class="fa arrow"></span>
                         </a>
                         <ul class="nav nav-second-level">
-                            <?php if(in_array('8',$auth)||$auth==''){ ?>
                             <li>
-                                <a class="J_menuItem" href="{:U('News/addNews')}">添加资讯</a>
+                                <a class="J_menuItem" href="{:url('News/addNews')}">添加资讯</a>
                             </li>
-                            <?php } ?>
-
-                            <?php if(in_array('9',$auth)||$auth==''){ ?>
                             <li>
-                                <a class="J_menuItem" href="{:U('News/index')}">资讯列表</a>
+                                <a class="J_menuItem" href="{:url('News/index')}">资讯列表</a>
                             </li>
-                            <?php } ?>
                         </ul>
                     </li>
-                    <?php } ?>
 
-                    <?php if(in_array('10',$auth)||$auth==''){ ?>
                     <li>
                         <a href="#flag">
                             <i class="fa fa-flag" style="font-size: 16px;"></i>
@@ -146,34 +101,21 @@
                             <span class="fa arrow"></span>
                         </a>
                         <ul class="nav nav-second-level">
-                            <?php if(in_array('11',$auth)||$auth==''){ ?>
                             <li>
-                                <a class="J_menuItem" href="{:U('Blog/addBlog')}">发布博文</a>
+                                <a class="J_menuItem" href="{:url('Blog/addBlog')}">发布博文</a>
                             </li>
-                            <?php } ?>
-
-                            <?php if(in_array('12',$auth)||$auth==''){ ?>
                             <li>
-                                <a class="J_menuItem" href="{:U('Blog/index')}">博文列表</a>
+                                <a class="J_menuItem" href="{:url('Blog/index')}">博文列表</a>
                             </li>
-                            <?php } ?>
-
-                            <?php if(in_array('13',$auth)||$auth==''){ ?>
                             <li>
-                                <a class="J_menuItem" href="{:U('Blog/cateList')}">分类管理</a>
+                                <a class="J_menuItem" href="{:url('Blog/cateList')}">分类管理</a>
                             </li>
-                            <?php } ?>
-
-                            <?php if(in_array('14',$auth)||$auth==''){ ?>
                             <li>
-                                <a class="J_menuItem" href="{:U('Blog/recycle')}">回收站</a>
+                                <a class="J_menuItem" href="{:url('Blog/recycle')}">回收站</a>
                             </li>
-                            <?php } ?>
                         </ul>
                     </li>
-                    <?php } ?>
 
-                    <?php if(in_array('15',$auth)||$auth==''){ ?>
                     <li>
                         <a href="#suitcase">
                             <i class="fa fa-suitcase" style="font-size: 16px;"></i>
@@ -181,65 +123,16 @@
                             <span class="fa arrow"></span>
                         </a>
                         <ul class="nav nav-second-level">
-                            <?php if(in_array('16',$auth)||$auth==''){ ?>
                             <li>
-                                <a class="J_menuItem" href="{:U('Doc/addDoc')}">上传文档</a>
+                                <a class="J_menuItem" href="{:url('Doc/addDoc')}">上传文档</a>
                             </li>
-                            <?php } ?>
 
-                            <?php if(in_array('17',$auth)||$auth==''){ ?>
                             <li>
-                                <a class="J_menuItem" href="{:U('Doc/index')}">文档列表</a>
+                                <a class="J_menuItem" href="{:url('Doc/index')}">文档列表</a>
                             </li>
-                            <?php } ?>
                         </ul>
                     </li>
-                    <?php } ?>
 
-<!--                    <?php if(in_array('18',$auth)||$auth==''){ ?>
-                    <li>
-                        <a href="#university">
-                            <i class="fa fa-university" style="font-size: 14px;"></i>
-                            <span class="nav-label">经费管理</span>
-                            <span class="fa arrow"></span>
-                        </a>
-                        <ul class="nav nav-second-level">
-                            <?php if(in_array('19',$auth)||$auth==''){ ?>
-                            <li>
-                                <a class="J_menuItem" href="{:U('Cost/addCost')}">添加记录</a>
-                            </li>
-                            <li>
-                                <a class="J_menuItem" href="{:U('Cost/costList')}">查看经费</a>
-                            </li>
-                            <?php } ?>
-                        </ul>
-                    </li>
-                    <?php } ?>-->
-
-<!--                    <?php if(in_array('20',$auth)||$auth==''){ ?>
-                    <li>
-                        <a href="#gavel">
-                            <i class="fa fa-gavel" style="font-size: 16px;"></i>
-                            <span class="nav-label">电子提案</span>
-                            <span class="fa arrow"></span>
-                        </a>
-                        <ul class="nav nav-second-level">
-                            <?php if(in_array('21',$auth)||$auth==''){ ?>
-                            <li>
-                                <a class="J_menuItem" href="{:U('Proposal/addProposal')}">新增提案</a>
-                            </li>
-                            <?php } ?>
-
-                            <?php if(in_array('22',$auth)||$auth==''){ ?>
-                            <li>
-                                <a class="J_menuItem" href="{:U('Proposal/proposalList')}">查看提案</a>
-                            </li>
-                            <?php } ?>
-                        </ul>
-                    </li>
-                    <?php } ?>-->
-
-                    <?php if(in_array('23',$auth)||$auth==''){ ?>
                     <li>
                         <a href="#user">
                             <i class="fa fa-user" style="font-size: 17px;"></i>
@@ -247,22 +140,15 @@
                             <span class="fa arrow"></span>
                         </a>
                         <ul class="nav nav-second-level">
-                            <?php if(in_array('24',$auth)||$auth==''){ ?>
                             <li>
-                                <a class="J_menuItem" href="{:U('User/addUser')}">新增用户</a>
+                                <a class="J_menuItem" href="{:url('User/addUser')}">新增用户</a>
                             </li>
-                            <?php } ?>
-
-                            <?php if(in_array('25',$auth)||$auth==''){ ?>
                             <li>
-                                <a class="J_menuItem" href={:U('User/index')}">用户列表</a>
+                                <a class="J_menuItem" href={:url('User/index')}">用户列表</a>
                             </li>
-                            <?php } ?>
                         </ul>
                     </li>
-                    <?php } ?>
 
-                    <?php if(in_array('26',$auth)||$auth==''){ ?>
                     <li>
                         <a href="##unlock-alt">
                             <i class="fa fa-unlock-alt" style="font-size: 18px;"></i>
@@ -270,53 +156,33 @@
                             <span class="fa arrow"></span>
                         </a>
                         <ul class="nav nav-second-level">
-                            <?php if(in_array('27',$auth)||$auth==''){ ?>
                             <li>
-                                <a class="J_menuItem" href="{:U('Role/index')}">角色管理</a>
+                                <a class="J_menuItem" href="{:url('Role/index')}">角色管理</a>
                             </li>
-                            <?php } ?>
-
-                            <?php if(in_array('28',$auth)||$auth==''){ ?>
                             <li>
-                                <a class="J_menuItem" href="{:U('Auth/index')}">权限列表</a>
+                                <a class="J_menuItem" href="{:url('Auth/index')}">权限列表</a>
                             </li>
-                            <?php } ?>
                         </ul>
                     </li>
-                    <?php } ?>
 
-                    <?php if(in_array('29',$auth)||$auth==''){ ?>
                     <li>
                         <a href="#cogs">
                             <i class="fa fa-cogs" style="font-size: 15px;"></i>
                             <span class="nav-label">系统管理</span>
                             <span class="fa arrow"></span>
                         </a>
-                        <?php if(in_array('30',$auth)||$auth==''){ ?>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a class="J_menuItem" href="{:U('System/index')}">站点配置</a>
+                                <a class="J_menuItem" href="{:url('System/index')}">站点配置</a>
                             </li>
                         </ul>
-                        <?php } ?>
 
-                        <?php if(in_array('31',$auth)||$auth==''){ ?>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a class="J_menuItem" href="{:U('Database/index')}">备份数据库</a>
+                                <a class="J_menuItem" href="{:url('Database/index')}">备份数据库</a>
                             </li>
                         </ul>
-                        <?php } ?>
-
-<!--                         <?php if(in_array('32',$auth)||$auth==''){ ?>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a class="J_menuItem" href="{:U('Database/import')}">还原数据库</a>
-                            </li>
-                        </ul>
-                        <?php } ?> -->
                     </li>
-                    <?php } ?>
                 </ul>
             </div>
         </nav>
@@ -328,16 +194,6 @@
                 <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
                     <div class="navbar-header"><a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i></a>
                     </div>
-<!--                    <ul class="nav navbar-top-links navbar-right">
-                        <li class="hidden-xs">
-                            <a href="index_v1.html" class="J_menuItem" data-index="0"><i class="fa fa-cart-arrow-down"></i> 主题</a>
-                        </li>
-                        <li class="dropdown hidden-xs">
-                            <a class="right-sidebar-toggle" aria-expanded="false">
-                                <i class="fa fa-tasks"></i> 主题
-                            </a>
-                        </li>
-                    </ul>-->
                 </nav>
             </div>
             <div class="row content-tabs">
@@ -364,10 +220,10 @@
                         </li>
                     </ul>
                 </div>
-                <a href="{:U('Login/logout')}" onclick="" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
+                <a href="{:url('Login/logout')}" onclick="" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
             </div>
             <div class="row J_mainContent" id="content-main">
-                <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="{:U('Index/main')}" frameborder="0" data-id="{:U('Index/main')}" seamless></iframe>
+                <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="{:url('Index/main')}" frameborder="0" data-id="{:url('Index/main')}" seamless></iframe>
             </div>
             <div class="footer">
                 <div class="pull-right">&copy; 2017
@@ -385,15 +241,5 @@
     <script src="__JS__/contabs.min.js" type="text/javascript"></script>
     <script src="__JS__/plugins/pace/pace.min.js"></script>
     <script src="__JS__/layer/layer.js"></script>
-<!--     <script>
-        定义全局变量
-        var GV = {
-            login_logout : "{:U('Login/logout')}",
-            login_index : "{:U('Login/index')}"
-        };
-    </script> -->
-    <!-- <script src="__JS__/http/index/index.js"></script> -->
 </body>
-
-<!-- Mirrored from www.zi-han.net/theme/hplus/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 03 Mar 2016 12:31:16 GMT -->
 </html>
