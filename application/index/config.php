@@ -8,9 +8,9 @@ return [
 
     // 视图输出字符串内容替换
     'view_replace_str'       => [
-    	'__PUBLIC__'	=> __ROOT__.'/static/index/',
-    	'__CSS__'		=> __ROOT__.'/static/index/css',
-    	'__JS__'		=> __ROOT__.'/static/index/js'
+    	'__PUBLIC__'	=> __ROOT__.'/index/',
+    	'__CSS__'		=> __ROOT__.'/index/css',
+    	'__JS__'		=> __ROOT__.'/index/js'
     ],
 
 ];
