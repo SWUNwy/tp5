@@ -27,10 +27,6 @@ $(function(){
             type:'post',
             data:{'username':username,'password':password,'verify':verify},
             success:function(message){
-                if(message.status == 101){
-                    layer.msg("验证码错误");
-                    return false;
-                }
                 if(message.status == 102){
                     layer.msg("用户名或密码错误");
                     return false;
