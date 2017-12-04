@@ -10,6 +10,7 @@ class Login extends Controller {
 	}
 
 	public function login() {
+
 		$table = db('user');
         $user = $table->where(array('uname' => input('uname','','htmlspecialchars')))->find();
         if (!$user || $user['pwd'] != input('pwd', '', 'MD5')) {
@@ -20,6 +21,9 @@ class Login extends Controller {
             'last_time' => date('Y-m-d H:i:s'),
             'last_ip' => request()->ip()
         );
+        // p($data);
+        // p($user['id']);
+        // die();
         $db = $table->where('id='.$user['id'])->save($data);
 
         //写入session
