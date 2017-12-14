@@ -16,11 +16,11 @@ class Index extends Controller {
     //Token
     private $token = "yrui";
 
-    public function __initialize($appId, $encodingAESKey, $token) {
-        $this->appId = $appId;
-        $this->encodingAESKey = $encodingAESKey;
-        $this->token = $token;
-    }
+    // public function __construct($appId, $encodingAESKey, $token) {
+    //     $this->appId = $appId;
+    //     $this->encodingAESKey = $encodingAESKey;
+    //     $this->token = $token;
+    // }
     
     public function index() {
         $echoStr     = $_GET["echostr"];
@@ -28,8 +28,8 @@ class Index extends Controller {
         $signature   = $_GET['signature'];
         $timestamp   = $_GET['timestamp'];
         $token       = $this->token;
-//        p($token);
-//        die();
+        p($token);
+        die();
         $tmpArr = array($token, $timestamp, $nonce);
 
         sort($tmpArr, SORT_STRING);
