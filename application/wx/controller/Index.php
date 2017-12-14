@@ -28,8 +28,8 @@ class Index extends Controller {
         $signature   = $_GET['signature'];
         $timestamp   = $_GET['timestamp'];
         $token       = $this->token;
-        p($token);
-        die();
+        // p($token);
+        // die();
         $tmpArr = array($token, $timestamp, $nonce);
 
         sort($tmpArr, SORT_STRING);
